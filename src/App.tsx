@@ -4,10 +4,11 @@ import {TaskType, TodoList} from "./components/TodoList";
 
 
 function App() {
-    let task1: Array<TaskType> = [ /*прописали тип массива, импортировали тип тасок из TaskType*/
+    let task1: Array<TaskType> = [ /*прописал тип массива, импортировал тип тасок из TaskType*/
         {id: 1, title: "CSS", isDone: true},
         {id: 2, title: "JS", isDone: true},
-        {id: 3, title: "React", isDone: false}
+        {id: 3, title: "React", isDone: false},
+        {id: 4, title: "JAVA", isDone: false}
     ]
     let task2: Array<TaskType> = [
         {id: 1, title: "Terminafter", isDone: true},
