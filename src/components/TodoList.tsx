@@ -7,7 +7,7 @@ export type TaskType = { /*тип тасок в PropsType*/ /*экспортир
 }
 type PropsType = {   /*тип входящих props в todolist*/
     title: string,
-    tasks: Array<TaskType> /*сюда передается тип тасок из TaskType*/
+    tasks: Array<TaskType> /*сюда передается тип тасок из TaskType.*/
 }
 export const TodoList = (props: PropsType) => {
     return (
