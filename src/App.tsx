@@ -11,8 +11,9 @@ function App() {
         {id: 4, title: "JAVA", isDone: false}
     ]
 
+    /*removeTasks принимает id из массива tasks*/
     function removeTasks(id: number) {
-        tasks = tasks.filter(t => t.id !== id)
+        tasks = tasks.filter(t => t.id !== id) /*пропускает все id которые !== той которую надо удалить. Перезаписывает массив tasks*/
     }
 
 

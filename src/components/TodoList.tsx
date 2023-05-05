@@ -23,7 +23,7 @@ export const TodoList = (props: PropsType) => {
                 {props.tasks.map(t => <li><input type="checkbox" checked={t.isDone}/>
                         <span>{t.title}</span>
                         <button onClick={() => {
-                            props.removeTasks(t.id)
+                            props.removeTasks(t.id) /*отправляет id удаляемого эл. в removeTasks*/
                         }}>X
                         </button>
                     </li>
