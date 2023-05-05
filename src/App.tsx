@@ -2,12 +2,13 @@ import React, {useState} from 'react';
 import './App.css';
 import TodoList, {TaskType} from "./TodoList";
 
-    //Create {...tasks, newTask}
-    //Read   tasks.map(t=>JSX.Element)
-    //Update tasks.map(t=>)
-    //Delete
+//Create {...tasks, newTask}
+//Read   tasks.map(t=>JSX.Element)
+//Update tasks.map(t=>condition ? {...t, key: newValue} : t)
+//Delete tasks.filter(t=>condition)
 
-type filterValuesType = "all" | "active" | "completed"
+export type filterValuesType = "all" | "active" | "completed"
+
 function App() {
     const title: string = "What to learn"
 
@@ -27,15 +28,13 @@ function App() {
 
     }
 
-    const getFilteredTasks = (tasks: Array<TaskType>, filter: filterValuesType): Array<TaskType> =>
-    {
-        switch (filter) {
-            case "active":
-                return  tasks.filter(t=> !t.isDone)
-            case "completed":
-                return tasks.filter(t=> t.isDone)
-            default:
-                return tasks
+    const getFilteredTasks = (tasks: Array<TaskType>, filter: filterValuesType): Array<TaskType> => {
+        if (filter === "active") {
+            return tasks.filter(t => !t.isDone)
+        } else if (filter === "completed") {
+            return tasks.filter(t => t.isDone)
+        } else {
+            return tasks
         }
     }
     const filteredTasks: Array<TaskType> = getFilteredTasks(tasks, filter)
