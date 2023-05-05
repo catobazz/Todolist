@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import {TodoList} from "./components/TodoList";
 
+export type FilterValuesType = "all" | "completed" | "active";
 
 function App() {
     /*хук useState для перерисовки массива initTasks*/
@@ -11,6 +12,9 @@ function App() {
         {id: 3, title: "React", isDone: false},
         {id: 4, title: "JAVA", isDone: false}
     ]);
+    let [filter, setFilter] = useState<FilterValuesType>('all') /*фильтр для кнопок отображения тасок*/
+
+    /*для фильтра для удаления тасок----------------------*/
 
     /*removeTasks принимает id из массива*/
     function removeTasks(id: number) {
@@ -18,12 +22,26 @@ function App() {
         setTasks(filteredTasks);
     }
 
+    /*-----------------------------------------------*/
+    /*для фильтра отображения тасок------------------*/
+    let tasksForTodolist = tasks; /*сюда пришел массив из useState*/
+    if (filter === "completed") {
+        tasksForTodolist = tasks.filter(t => t.isDone === true);
+    }
+    if (filter === "active") {
+        tasksForTodolist = tasks.filter(t => t.isDone === false);
+    }
+    if (filter === "all") {
+        tasksForTodolist = tasks.filter(t => t.isDone === true);
+    }
+
+
 
     return (
         <div className="App">
 
             <TodoList title="What to learn"
-                      tasks={tasks}
+                      tasks={tasksForTodolist}
                       removeTasks={removeTasks}
             />
             {/*отрисовывает JSX из компоненты todolist (передает в todolist паремтры title и tasks через props)*/}
