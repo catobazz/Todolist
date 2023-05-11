@@ -2,15 +2,16 @@ import React from "react";
 import {FilterValuesType} from "../App";
 
 export type TaskType = { /*тип тасок в PropsType*/ /*экспортируем тип тасок в task1 и task2 (в App)*/
-    id: number,
+    id: string,
     title: string,
     isDone: boolean
 }
 type PropsType = {   /*тип входящих props в todolist*/
     title: string,
     tasks: Array<TaskType>, /*сюда передается тип тасок из TaskType.*/
-    removeTasks: (id: number) => void,
-    changeFilter: (value: FilterValuesType) => void
+    removeTasks: (id: string) => void,
+    changeFilter: (value: FilterValuesType) => void,
+    addTask: () => void
 }
 export const TodoList = (props: PropsType) => {
     return (
@@ -18,11 +19,11 @@ export const TodoList = (props: PropsType) => {
             <h3>{props.title}</h3>
             <div>
                 <input/>
-                <button>+</button>
+                <button onClick={() =>{props.addTask()}}>+</button>
             </div>
             <ul>
                 {/*приходят данные из props*/}
-                {props.tasks.map(t => <li><input type="checkbox" checked={t.isDone}/>
+                {props.tasks.map(t => <li key={t.id}><input type="checkbox" checked={t.isDone}/>
                         <span>{t.title}</span>
                         <button onClick={() => {
                             props.removeTasks(t.id) /*отправляет id удаляемого эл. в removeTasks*/
