@@ -23,8 +23,10 @@ const TodoList = (props: TodoListPropsType) => {
     const [newTitle, setNewTitle] = useState('')
 
     const addTaskHandler = () => {
-        props.addTask(newTitle)
-        setNewTitle('')
+        if (newTitle.trim()) {
+            props.addTask(newTitle.trim())
+            setNewTitle('')
+        }
     }
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
