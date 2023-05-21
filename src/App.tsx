@@ -3,6 +3,7 @@ import { v1 } from 'uuid';
 import './App.css';
 import TodoList, {TaskType} from "./TodoList";
 
+
 //Create {...tasks, newTask}
 //Read   tasks.map(t=>JSX.Element)
 //Update tasks.map(t=>condition ? {...t, key: newValue} : t)
