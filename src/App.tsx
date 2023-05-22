@@ -13,7 +13,7 @@ function App() {
         {id: v1(), title: "React", isDone: false},
         {id: v1(), title: "JAVA", isDone: false}
     ]);
-    let [filter, setFilter] = useState<FilterValuesType>('active') /*фильтр для кнопок отображения тасок*/
+    let [filter, setFilter] = useState<FilterValuesType>('all') /*фильтр для кнопок отображения тасок*/
 
     /*для фильтра для удаления тасок----------------------*/
 
@@ -28,6 +28,13 @@ function App() {
         let newTask = {id: v1(), title: title, isDone: false}
         let newTasks = [newTask, ...tasks]
         setTasks(newTasks)
+    }
+    function changeStatus(taskId:string, isDone: boolean) {
+        let task = tasks.find(t=>t.id===taskId)
+        if (task) {
+            task.isDone=isDone;
+        setTasks([...tasks])
+        }
     }
 
     /*для фильтра отображения тасок------------------*/
@@ -52,6 +59,8 @@ function App() {
                       removeTasks={removeTasks}
                       changeFilter={changeFilter}
                       addTask={addTask}
+                      changeStatus={changeStatus}
+                      filter={filter}
             />
             {/*отрисовывает JSX из компоненты todolist (передает в todolist паремтры title и tasks через props)*/}
         </div>
