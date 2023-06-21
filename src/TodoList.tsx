@@ -13,11 +13,11 @@ type TodoListPropsType = {
     todolistId : string
     title: string
     tasks: Array<TaskType>
-    removeTask: (taskId: string) => void
+    removeTask: (todolistId: string, taskId: string) => void
     changeFilter: (todolistId: string, filter: filterValuesType) => void
-    addTask: (newTitle: string) => void
-    changeStatus: (taskId:string, checkedValue: boolean)=>void
-    // filter: () => void
+    addTask: (todolistId: string, newTitle: string) => void
+    changeStatus: (todolistId: string, taskId:string, checkedValue: boolean)=>void
+    filter: filterValuesType
 }
 
 
@@ -29,7 +29,7 @@ const TodoList = (props: TodoListPropsType) => {
 
     const addTaskHandler = () => {
         if (newTitle.trim()) {
-            props.addTask(newTitle.trim())
+            props.addTask(props.todolistId, newTitle.trim())
             setNewTitle('')
         } else {
             setError(true)
@@ -53,10 +53,10 @@ const TodoList = (props: TodoListPropsType) => {
 
     const mappedTasks =  props.tasks.map(task => {
         const removeTaskHandler = () => {
-            props.removeTask(task.id)
+            props.removeTask(props.todolistId, task.id)
         }
         const changeStatusHandler = (e: ChangeEvent<HTMLInputElement>) => {
-            props.changeStatus(task.id,e.currentTarget.checked)
+            props.changeStatus(props.todolistId, task.id,e.currentTarget.checked)
         }
             return (
                 <li key={task.id} className={task.isDone ? styles.isDone : ''}>
@@ -69,7 +69,7 @@ const TodoList = (props: TodoListPropsType) => {
     )
     return (
         <div className="todolist">
-            <h3>{props.title}</h3>
+            <h3>{props.title}<button>x</button></h3>
             <div>
                 <input className={error ?  styles.error : ''}
                        onKeyPress={onKeyPressHandler}

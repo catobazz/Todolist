@@ -40,20 +40,18 @@ function App() {
         ]
     })
 
-    const addTask = (newTitle: string) => {
+    const addTask = (todolistId: string, newTitle: string) => {
         let newTask = {id: v1(), title: newTitle, isDone: false}
-        // setTasks([newTask, ...tasks])
+        setTasks({...tasks, [todolistId]: [newTask, ...tasks[todolistId]] })
     }
-
+    const removeTask = (todolistId: string, taskId: string) => {
+        setTasks({...tasks, [todolistId]: tasks[todolistId].filter(el=>el.id!==taskId)})
+    }
     const changeFilter = (todolistId: string, value: filterValuesType) => {
         setTodolists(todolists.map(el => el.id===todolistId ? {...el, filter:value } : el))
     }
-    const removeTask = (taskId: string) => {
-        // const updatedTask = tasks.filter((task) => task.id !== taskId)
-        // setTasks(updatedTask)
-    }
-    const changeStatus = (taskId: string, checkedValue: boolean) => {
-        // setTasks(tasks.map(el => el.id === taskId ? {...el, isDone: checkedValue} : el))
+    const changeStatus = (todolistId: string, taskId: string, checkedValue: boolean) => {
+        setTasks({...tasks, [todolistId]:tasks[todolistId].map(el=>el.id===taskId ? {...el, isDone: checkedValue} : el) })
     }
 
 
