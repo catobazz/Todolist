@@ -6,14 +6,15 @@ import { faDeleteLeft } from '@fortawesome/free-solid-svg-icons'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 
 type TodoListPropsType = {
-    id: string
+    todoListId: string
     title: string
     filter: FilterValuesType
     tasks: Array<TaskType>
-    removeTask: (taskId: string) => void
-    addTask: (title: string) => void
-    changeFilter: (nextFilterValue: FilterValuesType) => void
-    changeTaskStatus: (taskId: string, newIsDoneValue: boolean) => void
+    removeTask: (taskId: string, todoListId: string) => void
+    addTask: (title: string, todoListId: string) => void
+    removeTodoList: (todoListId: string) => void
+    changeFilter: (nextFilterValue: FilterValuesType, todoListId: string) => void
+    changeTaskStatus: (taskId: string, newIsDoneValue: boolean, todoListId: string) => void
 }
 
 export type TaskType = {
@@ -22,7 +23,6 @@ export type TaskType = {
     isDone: boolean
 }
 const TodoList: FC<TodoListPropsType> = (props) => {
-
     const [title, setTitle] = useState("")
     const [error, setError] = useState<boolean>(false)
 
@@ -31,9 +31,9 @@ const TodoList: FC<TodoListPropsType> = (props) => {
          :  <ul className={"tasks-list"}>
             {
                 props.tasks.map((task) => {
-                    const removeTask = () => props.removeTask(task.id)
+                    const removeTask = () => props.removeTask(task.id, props.todoListId)
                     const changeTaskStatus = (e: ChangeEvent<HTMLInputElement>) =>
-                        props.changeTaskStatus(task.id, e.currentTarget.checked)
+                        props.changeTaskStatus(task.id, e.currentTarget.checked, props.todoListId)
                     return (
                         <li key={task.id} className={"tasks-list-item"}>
                             <div>
@@ -54,7 +54,7 @@ const TodoList: FC<TodoListPropsType> = (props) => {
     const addTask = () => {
         const trimmedTitle = title.trim()
         if(trimmedTitle){
-            props.addTask(trimmedTitle)
+            props.addTask(trimmedTitle, props.todoListId)
         } else {
             setError(true)
         }
@@ -64,6 +64,7 @@ const TodoList: FC<TodoListPropsType> = (props) => {
     const maxTaskTitleLength = 15
     const isTaskTitleLengthTooLong = title.length > maxTaskTitleLength
     const isAddTaskBtnDisabled = !title || isTaskTitleLengthTooLong
+
     const changeTaskTitle = (e: ChangeEvent<HTMLInputElement>) => {
         if(error) {
             setError(false)
@@ -75,7 +76,10 @@ const TodoList: FC<TodoListPropsType> = (props) => {
 
     return (
         <div className="todoList">
-            <h3 className={"todolist-header"}>{props.title}</h3>
+            <h3 className={"todolist-header"}>
+                {props.title}
+                <button onClick={()=>props.removeTodoList(props.todoListId)}>x</button>
+            </h3>
             <div>
                 <input
                     value={title}
@@ -110,15 +114,15 @@ const TodoList: FC<TodoListPropsType> = (props) => {
             <div className={"buttons-block"}>
                 <button
                     className={props.filter === "all" ? "btn-filter-active" : undefined}
-                    onClick={() => props.changeFilter("all")}>All
+                    onClick={() => props.changeFilter("all", props.todoListId)}>All
                 </button>
                 <button
                     className={props.filter === "active" ? "btn-filter-active" : undefined}
-                    onClick={() => props.changeFilter("active")}>Active
+                    onClick={() => props.changeFilter("active", props.todoListId)}>Active
                 </button>
                 <button
                     className={props.filter === "completed" ? "btn-filter-active" : undefined}
-                    onClick={() => props.changeFilter("completed")}>Completed
+                    onClick={() => props.changeFilter("completed", props.todoListId)}>Completed
                 </button>
             </div>
         </div>
