@@ -10,17 +10,11 @@ type TodolistsType = {
 }
 export type FilterValuesType = "all" | "completed" | "active";
 
-function App() {
-    /*хук useState для перерисовки массива initTasks*/
-    // let [tasksObj, setTasks] = useState<Array<TaskType>>([
-    //     {id: v1(), title: "CSS", isDone: true},
-    //     {id: v1(), title: "JS", isDone: true},
-    //     {id: v1(), title: "React", isDone: false},
-    //     {id: v1(), title: "JAVA", isDone: false}
-    // ]);
-    // let [filter, setFilter] = useState<FilterValuesType>('all') /*фильтр для кнопок отображения тасок*/
+type TasksObjStateType = {
+    [key: string]: TaskType[]
+}
 
-    /*для фильтра для удаления тасок----------------------*/
+function App() {
 
     /*removeTasks принимает id из массива*/
     function removeTasks(id: string, todolistId: string) {
@@ -52,25 +46,19 @@ function App() {
     function changeFilter(value: FilterValuesType, todolistId: string) {
         let todoList = todolists.find(tl => tl.id === todolistId)
         if (todoList) {
-            todoList.filter = value,
-                setTodolists([...todolists])
+            todoList.filter = value
+            setTodolists([...todolists])
         }
     }
+
     const removeTodolist = (todolistId: string) => {
-        let filteredTodolist = todolists.filter(t => t.id!==todolistId)
+        let filteredTodolist = todolists.filter(t => t.id !== todolistId)
         setTodolists(filteredTodolist)
         delete tasksObj[todolistId]
         setTasks({...tasksObj})
 
     }
 
-    // let tasksForTodolist = tasksObj; /*сюда пришел массив из useState*/
-    // if (filter === "completed") {
-    //     tasksForTodolist = tasksObj.filter(t => t.isDone);
-    // }
-    // if (filter === "active") {
-    //     tasksForTodolist = tasksObj.filter(t => !t.isDone);
-    // }
     /*-----------------------------------------------*/
     let todolistID1 = v1()
     let todolistID2 = v1()
@@ -80,7 +68,7 @@ function App() {
         {id: todolistID2, title: 'What to buy', filter: 'all'},
     ])
 
-    let [tasksObj, setTasks] = useState({
+    let [tasksObj, setTasks] = useState<TasksObjStateType>({
         [todolistID1]: [
             {id: v1(), title: 'HTML&CSS', isDone: true},
             {id: v1(), title: 'JS', isDone: true},
@@ -96,33 +84,34 @@ function App() {
 
     return (
         <div className="App">
-            {
-                todolists.map(ts => {
+            <input/> <button>x</button>
+                {
+                    todolists.map(ts => {
 
-                    let tasksForTodolist = tasksObj[ts.id]; /*сюда пришел массив из useState*/
-                    if (ts.filter === "completed") {
-                        tasksForTodolist = tasksForTodolist.filter(t => t.isDone);
-                    }
-                    if (ts.filter === "active") {
-                        tasksForTodolist = tasksForTodolist.filter(t => !t.isDone);
-                    }
-                    return <TodoList
-                        key={ts.id}
-                        id={ts.id}
-                        title={ts.title}
-                        tasks={tasksForTodolist}
-                        removeTasks={removeTasks}
-                        changeFilter={changeFilter}
-                        addTask={addTask}
-                        changeStatus={changeStatus}
-                        filter={ts.filter}
-                        removeTodolist={removeTodolist}
-                    />
-                })
-            }
-            {/*отрисовывает JSX из компоненты todolist (передает в todolist паремтры title и tasksObj через props)*/}
+                        let tasksForTodolist = tasksObj[ts.id]; /*сюда пришел массив из useState*/
+                        if (ts.filter === "completed") {
+                            tasksForTodolist = tasksForTodolist.filter(t => t.isDone);
+                        }
+                        if (ts.filter === "active") {
+                            tasksForTodolist = tasksForTodolist.filter(t => !t.isDone);
+                        }
+                        return <TodoList
+                            key={ts.id}
+                            id={ts.id}
+                            title={ts.title}
+                            tasks={tasksForTodolist}
+                            removeTasks={removeTasks}
+                            changeFilter={changeFilter}
+                            addTask={addTask}
+                            changeStatus={changeStatus}
+                            filter={ts.filter}
+                            removeTodolist={removeTodolist}
+                        />
+                    })
+                }
+                {/*отрисовывает JSX из компоненты todolist (передает в todolist паремтры title и tasksObj через props)*/}
         </div>
-    );
+);
 }
 
 export default App;
