@@ -25,7 +25,7 @@ type TodoListPropsType = {
 const TodoList = (props: TodoListPropsType) => {
 
     const [newTitle, setNewTitle] = useState('')
-    const [error, setError] = useState(false)
+    const [error, setError] = useState<string | null>('')
     const [buttonName, setButtonName] = useState<filterValuesType>('all')
 
     const addTaskHandler = () => {
@@ -33,7 +33,7 @@ const TodoList = (props: TodoListPropsType) => {
             props.addTask(props.todolistId, newTitle.trim())
             setNewTitle('')
         } else {
-            setError(true)
+            setError('Tittle is required')
         }
     }
 
@@ -42,7 +42,7 @@ const TodoList = (props: TodoListPropsType) => {
     }
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setError(false)
+        setError(null)
         setNewTitle(e.currentTarget.value)
     }
 
@@ -84,18 +84,18 @@ const TodoList = (props: TodoListPropsType) => {
                        onChange={onChangeHandler}/>
                 <button onClick={addTaskHandler}>+</button>
             </div>
+            {error && <div className={styles.errorMessage} >{ error }</div>}
             <ul>
                 {mappedTasks}
-
             </ul>
             <div>
-                <button className={buttonName === 'all' ? styles.activFilter : ''}
+                <button className={buttonName === 'all' ? styles.activeFilter : ''}
                         onClick={() => changeFilterHandler('all')}>All
                 </button>
-                <button className={buttonName === 'active' ? styles.activFilter : ''}
+                <button className={buttonName === 'active' ? styles.activeFilter : ''}
                         onClick={() => changeFilterHandler('active')}>Active
                 </button>
-                <button className={buttonName === 'completed' ? styles.activFilter : ''}
+                <button className={buttonName === 'completed' ? styles.activeFilter : ''}
                         onClick={() => changeFilterHandler('completed')}>Completed
                 </button>
             </div>
