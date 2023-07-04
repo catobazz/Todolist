@@ -32,7 +32,7 @@ export const AddItemForm = (props: AddItemFormPropsType) => {
         }
     }
     return (
-        <div>
+        <div >
             <input
                 value={title}
                 onChange={changeItemTitle}
