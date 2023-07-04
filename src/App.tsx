@@ -24,7 +24,7 @@ function App(): JSX.Element {
         {id: todoListId_1, title: "What to learn", filter: "all"},
         {id: todoListId_2, title: "What to buy", filter: "all"},
     ])
-    const [tasks, setTasks] = useState<TasksStateType>( {
+    const [tasks, setTasks] = useState<TasksStateType>({
         [todoListId_1]: [
             {id: v1(), title: "HTML", isDone: true},
             {id: v1(), title: "CSS", isDone: true},
@@ -65,7 +65,7 @@ function App(): JSX.Element {
         // copyTasks[todoListId] = updatedTasks
         // setTasks(copyTasks)
         //
-        setTasks({...tasks, [todoListId]: [newTask, ...tasks[todoListId]] })
+        setTasks({...tasks, [todoListId]: [newTask, ...tasks[todoListId]]})
     }
     const changeTaskStatus = (taskId: string, newIsDoneValue: boolean, todoListId: string) => {
         // const tasksForTodoList: Array<TaskType> = tasks[todoListId]
@@ -89,6 +89,14 @@ function App(): JSX.Element {
         delete copyTasks[todoListId]
         setTasks(copyTasks)
     }
+
+    const addTodolist = (title: string) => {
+        const newTodoId = v1()
+        const newTodo: TodoListType = { id: newTodoId, title: title, filter: "all" }
+        setTodoLists([...todoLists, newTodo])
+        setTasks({...tasks,[newTodoId]:[]})
+    }
+
 
     // UI
     const getFilteredTasks =
@@ -119,11 +127,7 @@ function App(): JSX.Element {
                 changeTaskStatus={changeTaskStatus}
             />
         )
-    } )
-
-
-
-
+    })
 
 
     return (
