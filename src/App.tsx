@@ -126,6 +126,7 @@ function App(): JSX.Element {
 
     const todoListsComponents: Array<JSX.Element> = todoLists.map((tl) => {
         const filteredTasks: Array<TaskType> = getFilteredTasks(tasks[tl.id], tl.filter)
+
         return (
             <TodoList
                 key={tl.id}
@@ -138,6 +139,8 @@ function App(): JSX.Element {
                 removeTodoList={removeTodoList}
                 changeFilter={changeTodoListFilter}
                 changeTaskStatus={changeTaskStatus}
+                changeTaskTitle={changeTaskTitle}
+                changeTodolistTitle={changeTodolistTitle}
             />
         )
     })
