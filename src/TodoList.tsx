@@ -1,6 +1,7 @@
 import {filterValuesType} from "./App";
-import {useState, KeyboardEvent, ChangeEvent} from "react";
+import {ChangeEvent} from "react";
 import styles from "./TodoList.module.css"
+import {AddItemForm} from "./AddItemForm";
 
 export type  TaskType = {
     id: string
@@ -22,32 +23,14 @@ type TodoListPropsType = {
 
 const TodoList = (props: TodoListPropsType) => {
 
-    const [newTitle, setNewTitle] = useState('')
-    const [error, setError] = useState<string | false>(false)
-
-    const addTaskHandler = () => {
-        if (newTitle.trim() !== "") {
-            props.addTask(props.todolistId, newTitle.trim())
-            setNewTitle('')
-        } else {
-            setError("Title is required")
-        }
-    }
-
-    const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === 'Enter') addTaskHandler()
-    }
-
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setError(false)
-        setNewTitle(e.currentTarget.value)
-    }
-
     const removeTodolistHandler = () => props.removeTodolist(props.todolistId)
 
     const onAllClickHandler = () => props.changeFilter(props.todolistId, "all");
     const onActiveClickHandler = () => props.changeFilter(props.todolistId, "active");
     const onCompletedClickHandler = () => props.changeFilter(props.todolistId, "completed");
+    const addTaskHandler = (title: string) => {
+        props.addTask(props.todolistId, title)
+    }
 
     const mappedTasks = props.tasks.map(task => {
             const removeTaskHandler = () => {
@@ -73,12 +56,9 @@ const TodoList = (props: TodoListPropsType) => {
                 <button onClick={removeTodolistHandler}>x</button>
             </h3>
             <div>
-                <input className={error ? styles.error : ''}
-                       onKeyPress={onKeyPressHandler}
-                       value={newTitle}
-                       onChange={onChangeHandler}/>
-                <button onClick={addTaskHandler}>+</button>
-                {error && <div className={styles.errorMessage}>{error}</div>}
+                <AddItemForm
+                    itemFormCallback={addTaskHandler}
+                />
             </div>
             <ul>
                 {mappedTasks}

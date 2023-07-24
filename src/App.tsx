@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {v1} from 'uuid';
 import './App.css';
 import TodoList, {TaskType} from "./TodoList";
+import {AddItemForm} from "./AddItemForm";
 
 //Create {...tasks, newTask}
 //Read   tasks.map(t=>JSX.Element)
@@ -50,7 +51,7 @@ function App() {
         setTasks({...tasks, [todolistId]: tasks[todolistId].filter(el => el.id !== taskId)})
     }
     const removeTodolist = (todolistId: string) => {
-        setTodolists(todolists.filter(el=>el.id!==todolistId))
+        setTodolists(todolists.filter(el => el.id !== todolistId))
         delete tasks[todolistId]
     }
     const changeFilter = (todolistId: string, value: filterValuesType) => {
@@ -62,10 +63,19 @@ function App() {
             [todolistId]: tasks[todolistId].map(el => el.id === taskId ? {...el, isDone: checkedValue} : el)
         })
     }
-
+    const addTodolist = (newTitle: string) => {
+        const todolist = v1()
+        const newTodolist: TodolistsType = {id: todolist, title: newTitle, filter: 'all'}
+        setTodolists([newTodolist, ...todolists])
+        setTasks({...tasks, [todolist]: []})
+    }
 
     return (
         <div className="App">
+
+            <AddItemForm
+                itemFormCallback={addTodolist}
+            />
             {todolists.map(el => {
 
                 let tasksForTodolist = tasks[el.id];
