@@ -20,7 +20,8 @@ type TodoListPropsType = {
     changeStatus: (todolistId: string, taskId: string, checkedValue: boolean) => void
     removeTodolist: (todolistId: string) => void
     filter: filterValuesType
-    updateTitleTask: (todolistId: string, taskId: string, updateTitle:string)=>void
+    updateTitleTask: (todolistId: string, taskId: string, updateTitle: string) => void
+    updateTitleTodolist: (todolistId: string, updateTitle: string)=>void
 }
 
 const TodoList = (props: TodoListPropsType) => {
@@ -33,9 +34,12 @@ const TodoList = (props: TodoListPropsType) => {
     const addTaskHandler = (title: string) => {
         props.addTask(props.todolistId, title)
     }
-const updateTitleTaskHandler = (taskId: string ,updateTitle: string)=>{
+    const updateTitleTaskHandler = (taskId: string, updateTitle: string) => {
         props.updateTitleTask(props.todolistId, taskId, updateTitle)
-}
+    }
+    const updateTitleTodolistHandler=(updateTitle: string)=> {
+        props.updateTitleTodolist(props.todolistId, updateTitle)
+    }
     const mappedTasks = props.tasks.map(task => {
             const removeTaskHandler = () => {
                 props.removeTask(props.todolistId, task.id)
@@ -49,7 +53,7 @@ const updateTitleTaskHandler = (taskId: string ,updateTitle: string)=>{
                     <input type="checkbox" checked={task.isDone} onChange={changeStatusHandler}/>
                     <EditableSpan
                         title={task.title}
-                    editableSpanCallBack={()=>updateTitleTaskHandler(task.id)}
+                        editableSpanCallBack={(updateTitle) => updateTitleTaskHandler(task.id, updateTitle)}
                     />
                     <button onClick={removeTaskHandler}>x</button>
                 </li>
@@ -59,7 +63,11 @@ const updateTitleTaskHandler = (taskId: string ,updateTitle: string)=>{
 
     return (
         <div className="todolist">
-            <h3>{props.title}
+            <h3>
+                <EditableSpan
+                    title={props.title}
+                    editableSpanCallBack={updateTitleTodolistHandler}
+                />
                 <button onClick={removeTodolistHandler}>x</button>
             </h3>
             <div>
@@ -69,7 +77,6 @@ const updateTitleTaskHandler = (taskId: string ,updateTitle: string)=>{
             </div>
             <ul>
                 {mappedTasks}
-
             </ul>
             <div>
                 <button className={props.filter === 'all' ? styles.activFilter : ''}
