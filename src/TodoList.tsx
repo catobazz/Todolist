@@ -2,6 +2,7 @@ import {filterValuesType} from "./App";
 import {ChangeEvent} from "react";
 import styles from "./TodoList.module.css"
 import {AddItemForm} from "./AddItemForm";
+import {EditableSpan} from "./EditableSpan";
 
 export type  TaskType = {
     id: string
@@ -19,6 +20,7 @@ type TodoListPropsType = {
     changeStatus: (todolistId: string, taskId: string, checkedValue: boolean) => void
     removeTodolist: (todolistId: string) => void
     filter: filterValuesType
+    updateTitleTask: (todolistId: string, taskId: string, updateTitle:string)=>void
 }
 
 const TodoList = (props: TodoListPropsType) => {
@@ -31,7 +33,9 @@ const TodoList = (props: TodoListPropsType) => {
     const addTaskHandler = (title: string) => {
         props.addTask(props.todolistId, title)
     }
-
+const updateTitleTaskHandler = (taskId: string ,updateTitle: string)=>{
+        props.updateTitleTask(props.todolistId, taskId, updateTitle)
+}
     const mappedTasks = props.tasks.map(task => {
             const removeTaskHandler = () => {
                 props.removeTask(props.todolistId, task.id)
@@ -43,7 +47,10 @@ const TodoList = (props: TodoListPropsType) => {
             return (
                 <li key={task.id} className={task.isDone ? styles.isDone : ''}>
                     <input type="checkbox" checked={task.isDone} onChange={changeStatusHandler}/>
-                    <span>{task.title}</span>
+                    <EditableSpan
+                        title={task.title}
+                    editableSpanCallBack={()=>updateTitleTaskHandler(task.id)}
+                    />
                     <button onClick={removeTaskHandler}>x</button>
                 </li>
             )
