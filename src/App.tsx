@@ -33,10 +33,12 @@ function App() {
             {id: v1(), title: 'HTML&CS', isDone: true},
             {id: v1(), title: 'JS', isDone: true},
             {id: v1(), title: 'ReactJS', isDone: false},
-        ],
-        [todolistID2]: [
             {id: v1(), title: 'Rest API', isDone: true},
             {id: v1(), title: 'GraphQL', isDone: false},
+        ],
+        [todolistID2]: [
+            {id: v1(), title: "Milk", isDone: true},
+            {id: v1(), title: "React Book", isDone: true}
         ]
     })
 
