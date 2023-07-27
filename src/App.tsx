@@ -3,6 +3,9 @@ import {v1} from 'uuid';
 import './App.css';
 import TodoList, {TaskType} from "./TodoList";
 import {AddItemForm} from "./AddItemForm";
+import ButtonAppBar from "./ButtonAppBar";
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
 
 //Create {...tasks, newTask}
 //Read   tasks.map(t=>JSX.Element)
@@ -70,7 +73,7 @@ function App() {
         setTasks({...tasks, [todolist]: []})
     }
     const updateTitleTodolist = (todolistId: string, updateTitle: string) => {
-        setTodolists(todolists.map(t=> t.id === todolistId ? {...t, title: updateTitle} : t))
+        setTodolists(todolists.map(t => t.id === todolistId ? {...t, title: updateTitle} : t))
     }
     const updateTitleTask = (todolistId: string, taskId: string, updateTitle: string) => {
         setTasks({
@@ -80,36 +83,44 @@ function App() {
     }
     return (
         <div className="App">
+            <ButtonAppBar/>
 
-            <AddItemForm
-                itemFormCallback={addTodolist}
-            />
-            {todolists.map(el => {
-
-                let tasksForTodolist = tasks[el.id];
-
-                if (el.filter === "active") {
-                    tasksForTodolist = tasks[el.id].filter(el => !el.isDone)
-                }
-                if (el.filter === "completed") {
-                    tasksForTodolist = tasks[el.id].filter(el => el.isDone)
-                }
-
-                return <TodoList
-                    key={el.id}
-                    todolistId={el.id}
-                    tasks={tasksForTodolist}
-                    title={el.title}
-                    removeTask={removeTask}
-                    changeFilter={changeFilter}
-                    addTask={addTask}
-                    changeStatus={changeStatus}
-                    removeTodolist={removeTodolist}
-                    filter={el.filter}
-                    updateTitleTask={updateTitleTask}
-                    updateTitleTodolist={updateTitleTodolist}
+            <Container fixed>
+                <Grid container>
+                <AddItemForm
+                    itemFormCallback={addTodolist}
                 />
-            })}
+                </Grid>
+                <Grid container>
+                {todolists.map(el => {
+
+                    let tasksForTodolist = tasks[el.id];
+
+                    if (el.filter === "active") {
+                        tasksForTodolist = tasks[el.id].filter(el => !el.isDone)
+                    }
+                    if (el.filter === "completed") {
+                        tasksForTodolist = tasks[el.id].filter(el => el.isDone)
+                    }
+
+                    return <TodoList
+                        key={el.id}
+                        todolistId={el.id}
+                        tasks={tasksForTodolist}
+                        title={el.title}
+                        removeTask={removeTask}
+                        changeFilter={changeFilter}
+                        addTask={addTask}
+                        changeStatus={changeStatus}
+                        removeTodolist={removeTodolist}
+                        filter={el.filter}
+                        updateTitleTask={updateTitleTask}
+                        updateTitleTodolist={updateTitleTodolist}
+                    />
+                })}
+                </Grid>
+            </Container>
+
         </div>
     );
 }
