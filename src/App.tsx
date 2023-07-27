@@ -6,6 +6,7 @@ import {AddItemForm} from "./AddItemForm";
 import ButtonAppBar from "./ButtonAppBar";
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
 
 //Create {...tasks, newTask}
 //Read   tasks.map(t=>JSX.Element)
@@ -86,10 +87,12 @@ function App() {
             <ButtonAppBar/>
 
             <Container fixed>
-                <Grid container>
+                <Grid container style={{padding: '10px'}} >
+                    <Paper elevation={3} style={{padding: '10px'}} >
                     <AddItemForm
                         itemFormCallback={addTodolist}
                     />
+                    </Paper>
                 </Grid>
                 <Grid container spacing={3}>
                     {todolists.map(el => {
@@ -105,6 +108,7 @@ function App() {
 
                         return (
                             <Grid item>
+                                <Paper elevation={3} style={{padding: '10px'}} >
                                 <TodoList
                                     key={el.id}
                                     todolistId={el.id}
@@ -119,6 +123,7 @@ function App() {
                                     updateTitleTask={updateTitleTask}
                                     updateTitleTodolist={updateTitleTodolist}
                                 />
+                                </Paper>
                             </Grid>
                         )
                     })}
