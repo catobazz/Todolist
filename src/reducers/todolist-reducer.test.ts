@@ -28,3 +28,16 @@ const  endState = todolistReducer(startState, {type: "ADD-TODOLIST", title: newT
     expect(endState.length).toBe(3)
     expect(endState[2].title).toBe(newTodolistTitle)
 })
+
+test('title todolist should be changed', ()=>{
+    const todoListId_1 = v1()
+    const todoListId_2 = v1()
+    const newTitle = "New title"
+    const  startState: Array<TodoListType> = [
+        {id: todoListId_1, title: "What to learn", filter: "all"},
+        {id: todoListId_2, title: "What to buy", filter: "all"},
+    ]
+    const  endState = todolistReducer(startState, {type: "CHANGE-TODOLIST-TITLE", title: newTitle , todolistId: todoListId_2})
+    expect(endState[0].title).toBe("What to learn")
+    expect(endState[1].title).toBe(newTitle)
+})
