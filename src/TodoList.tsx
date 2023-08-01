@@ -1,9 +1,5 @@
-import React, {ChangeEvent, FC, useState} from 'react';
+import React, {ChangeEvent, FC} from 'react';
 import {FilterValuesType} from "./App";
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faCirclePlus} from '@fortawesome/free-solid-svg-icons'
-import {faDeleteLeft} from '@fortawesome/free-solid-svg-icons'
-import {faTrash} from '@fortawesome/free-solid-svg-icons'
 import {AddItemForm} from "./AddItemForm";
 import {EditableSpan} from "./EditableSpan";
 import {Button, Checkbox, IconButton} from "@mui/material";
@@ -54,7 +50,6 @@ const TodoList: FC<TodoListPropsType> = (props) => {
                                     classes={task.isDone ? "task-done" : "task"}
                                     title={task.title}/>
                             </div>
-                            {/*<button onClick={removeTask}>x</button>*/}
                             <IconButton
                                 size={"small"}
                                 onClick={removeTask}>
@@ -76,7 +71,6 @@ const TodoList: FC<TodoListPropsType> = (props) => {
         <div className="todoList">
             <h3 className={"todolist-header"}>
                 <EditableSpan title={props.title} classes={''} changeTitle={changeTodolistTitle}/>
-                {/*<button onClick={() => props.removeTodoList(props.todoListId)}>x</button>*/}
                 <IconButton
                     size={"small"}
                     onClick={() => props.removeTodoList(props.todoListId)}>

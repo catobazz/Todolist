@@ -1,7 +1,6 @@
 import React, {ChangeEvent, useState} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faCirclePlus, faDeleteLeft, faTrash} from "@fortawesome/free-solid-svg-icons";
-import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import {IconButton, TextField} from "@mui/material";
 type AddItemFormPropsType = {
     maxTaskTitleLength: number
@@ -47,11 +46,6 @@ export const AddItemForm = (props: AddItemFormPropsType) => {
                     }
                 }}
             />
-            {/*<button*/}
-            {/*    disabled={isAddItemBtnDisabled}*/}
-            {/*    onClick={addTask}>*/}
-            {/*    <FontAwesomeIcon icon={faCirclePlus} />*/}
-            {/*</button>*/}
 
             <IconButton
                 size={"small"}

@@ -20,7 +20,7 @@ import {amber, teal} from "@mui/material/colors";
 
 export type FilterValuesType = "all" | "active" | "completed"
 
-type TodoListType = {
+export type TodoListType = {
     id: string
     title: string
     filter: FilterValuesType
@@ -59,39 +59,19 @@ function App(): JSX.Element {
         setTodoLists(updatedTodoLists)
     }
     const removeTask = (taskId: string, todoListId: string) => {
-        // const tasksForTodoList: Array<TaskType> = tasks[todoListId]
-        // const updatedTasks: Array<TaskType> = tasksForTodoList.filter((t) => t.id !== taskId)
-        // const copyTasks: TasksStateType = {...tasks}
-        // copyTasks[todoListId] = updatedTasks
-        // setTasks(copyTasks)
-        //
         setTasks({
             ...tasks, [todoListId]: tasks[todoListId].filter((t) => t.id !== taskId)
         })
     }
     const addTask = (title: string, todoListId: string) => {
-        // const tasksForTodoList: Array<TaskType> = tasks[todoListId]
         const newTask: TaskType = {
             id: v1(),
             title: title,
             isDone: false
         }
-        // const updatedTasks: Array<TaskType> = [newTask,...tasksForTodoList]
-        // const copyTasks: TasksStateType = {...tasks}
-        // copyTasks[todoListId] = updatedTasks
-        // setTasks(copyTasks)
-        //
         setTasks({...tasks, [todoListId]: [newTask, ...tasks[todoListId]]})
     }
     const changeTaskStatus = (taskId: string, newIsDoneValue: boolean, todoListId: string) => {
-        // const tasksForTodoList: Array<TaskType> = tasks[todoListId]
-        // const updatedTasks: Array<TaskType> = tasksForTodoList.map(t => t.id === taskId
-        //     ? {...t, isDone: newIsDoneValue}
-        //     : t)
-        // const copyTasks: TasksStateType = {...tasks}
-        // copyTasks[todoListId] = updatedTasks
-        // setTasks(copyTasks)
-        //
         setTasks({
             ...tasks, [todoListId]: tasks[todoListId].map(t => t.id === taskId
                 ? {...t, isDone: newIsDoneValue}
