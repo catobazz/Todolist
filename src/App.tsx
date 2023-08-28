@@ -3,7 +3,7 @@ import {v1} from 'uuid';
 import './App.css';
 import TodoList, {TaskType} from "./TodoList";
 import {AddItemForm} from "./AddItemForm";
-import ButtonAppBar from "./ButtonAppBar";
+import ButtonAppBar from "./components/ButtonAppBar";
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -16,7 +16,7 @@ import Paper from '@mui/material/Paper';
 type TodolistStateType = {
     [key: string]: Array<TaskType>
 }
-type TodolistsType = {
+export type TodolistType = {
     id: string,
     title: string
     filter: filterValuesType
@@ -28,7 +28,7 @@ function App() {
     let todolistID1 = v1()
     let todolistID2 = v1()
 
-    let [todolists, setTodolists] = useState<Array<TodolistsType>>([
+    let [todolists, setTodolists] = useState<Array<TodolistType>>([
         {id: todolistID1, title: 'What to learn', filter: 'all'},
         {id: todolistID2, title: 'What to buy', filter: 'all'},
     ])
@@ -69,7 +69,7 @@ function App() {
     }
     const addTodolist = (newTitle: string) => {
         const todolist = v1()
-        const newTodolist: TodolistsType = {id: todolist, title: newTitle, filter: 'all'}
+        const newTodolist: TodolistType = {id: todolist, title: newTitle, filter: 'all'}
         setTodolists([newTodolist, ...todolists])
         setTasks({...tasks, [todolist]: []})
     }
@@ -87,11 +87,11 @@ function App() {
             <ButtonAppBar/>
 
             <Container fixed>
-                <Grid container style={{padding: '10px'}} >
-                    <Paper elevation={3} style={{padding: '10px'}} >
-                    <AddItemForm
-                        itemFormCallback={addTodolist}
-                    />
+                <Grid container style={{padding: '10px'}}>
+                    <Paper elevation={3} style={{padding: '10px'}}>
+                        <AddItemForm
+                            itemFormCallback={addTodolist}
+                        />
                     </Paper>
                 </Grid>
                 <Grid container spacing={3}>
@@ -108,21 +108,21 @@ function App() {
 
                         return (
                             <Grid item>
-                                <Paper elevation={3} style={{padding: '10px'}} >
-                                <TodoList
-                                    key={el.id}
-                                    todolistId={el.id}
-                                    tasks={tasksForTodolist}
-                                    title={el.title}
-                                    removeTask={removeTask}
-                                    changeFilter={changeFilter}
-                                    addTask={addTask}
-                                    changeStatus={changeStatus}
-                                    removeTodolist={removeTodolist}
-                                    filter={el.filter}
-                                    updateTitleTask={updateTitleTask}
-                                    updateTitleTodolist={updateTitleTodolist}
-                                />
+                                <Paper elevation={3} style={{padding: '10px'}}>
+                                    <TodoList
+                                        key={el.id}
+                                        todolistId={el.id}
+                                        tasks={tasksForTodolist}
+                                        title={el.title}
+                                        removeTask={removeTask}
+                                        changeFilter={changeFilter}
+                                        addTask={addTask}
+                                        changeStatus={changeStatus}
+                                        removeTodolist={removeTodolist}
+                                        filter={el.filter}
+                                        updateTitleTask={updateTitleTask}
+                                        updateTitleTodolist={updateTitleTodolist}
+                                    />
                                 </Paper>
                             </Grid>
                         )
