@@ -13,7 +13,7 @@ import Paper from '@mui/material/Paper';
 //Update tasks.map(t=>condition ? {...t, key: newValue} : t)
 //Delete tasks.filter(t=>condition)
 
-type TodolistStateType = {
+export type TasksStateType = {
     [key: string]: Array<TaskType>
 }
 export type TodolistType = {
@@ -33,7 +33,7 @@ function App() {
         {id: todolistID2, title: 'What to buy', filter: 'all'},
     ])
 
-    let [tasks, setTasks] = useState<TodolistStateType>({
+    let [tasks, setTasks] = useState<TasksStateType>({
         [todolistID1]: [
             {id: v1(), title: 'HTML&CS', isDone: true},
             {id: v1(), title: 'JS', isDone: true},
