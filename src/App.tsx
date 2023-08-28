@@ -19,9 +19,9 @@ type TodolistStateType = {
 export type TodolistType = {
     id: string,
     title: string
-    filter: filterValuesType
+    filter: FilterValuesType
 }
-export type filterValuesType = "all" | "active" | "completed"
+export type FilterValuesType = "all" | "active" | "completed"
 
 function App() {
 
@@ -58,7 +58,7 @@ function App() {
         setTodolists(todolists.filter(el => el.id !== todolistId))
         delete tasks[todolistId]
     }
-    const changeFilter = (todolistId: string, value: filterValuesType) => {
+    const changeFilter = (todolistId: string, value: FilterValuesType) => {
         setTodolists(todolists.map(el => el.id === todolistId ? {...el, filter: value} : el))
     }
     const changeStatus = (todolistId: string, taskId: string, checkedValue: boolean) => {

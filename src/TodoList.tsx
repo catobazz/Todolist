@@ -1,4 +1,4 @@
-import {filterValuesType} from "./App";
+import {FilterValuesType} from "./App";
 import styles from "./TodoList.module.css"
 import {AddItemForm} from "./AddItemForm";
 import {EditableSpan} from "./components/EditableSpan";
@@ -18,11 +18,11 @@ type TodoListPropsType = {
     title: string
     tasks: Array<TaskType>
     removeTask: (todolistId: string, taskId: string) => void
-    changeFilter: (todolistId: string, filter: filterValuesType) => void
+    changeFilter: (todolistId: string, filter: FilterValuesType) => void
     addTask: (todolistId: string, newTitle: string) => void
     changeStatus: (todolistId: string, taskId: string, checkedValue: boolean) => void
     removeTodolist: (todolistId: string) => void
-    filter: filterValuesType
+    filter: FilterValuesType
     updateTitleTask: (todolistId: string, taskId: string, updateTitle: string) => void
     updateTitleTodolist: (todolistId: string, updateTitle: string) => void
 }
