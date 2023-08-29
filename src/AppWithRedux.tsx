@@ -4,7 +4,7 @@ import './App.css';
 import TodoList, {TaskType} from "./TodoList";
 import {AddItemForm} from "./AddItemForm";
 import ButtonAppBar from "./components/ButtonAppBar";
-import Container from '@mui/material/Container';
+import {Container} from "@mui/material";
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import {
