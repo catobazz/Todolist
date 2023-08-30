@@ -1,5 +1,4 @@
-import React, {useReducer} from 'react';
-import {v1} from 'uuid';
+import React from 'react';
 import './App.css';
 import TodoList, {TaskType} from "./TodoList";
 import {AddItemForm} from "./AddItemForm";
@@ -11,15 +10,15 @@ import {
     addTodolistAC,
     changeTodolistFilterAC, changeTodolistTitleAC,
     removeTodolistAC,
-    todolistsReducer
 } from "./state/todolists-reducer";
 import {
     addTaskAC,
     changeTaskStatusAC,
     changeTaskTitleAC,
     removeTaskAC,
-    tasksReducer
 } from "./state/tasks-reducer";
+import {useDispatch, useSelector} from "react-redux";
+import {AppRootStateType} from "./state/store";
 
 //Create {...tasks, newTask}
 //Read   tasks.map(t=>JSX.Element)
@@ -38,55 +37,37 @@ export type FilterValuesType = "all" | "active" | "completed"
 
 function AppWithRedux() {
 
-    let todolistID1 = v1()
-    let todolistID2 = v1()
+    let todolists = useSelector<AppRootStateType, Array<TodolistType>>(state => state.todolists)
 
-    let [todolists, dispatchToTodolists] = useReducer(todolistsReducer, [
-        {id: todolistID1, title: 'What to learn', filter: 'all'},
-        {id: todolistID2, title: 'What to buy', filter: 'all'},
-    ])
+    let tasks = useSelector<AppRootStateType, TasksStateType>(state => state.tasks)
 
-    let [tasks, dispatchToTasks] = useReducer(tasksReducer, {
-        [todolistID1]: [
-            {id: v1(), title: 'HTML&CS', isDone: true},
-            {id: v1(), title: 'JS', isDone: true},
-            {id: v1(), title: 'ReactJS', isDone: false},
-            {id: v1(), title: 'Rest API', isDone: true},
-            {id: v1(), title: 'GraphQL', isDone: false},
-        ],
-        [todolistID2]: [
-            {id: v1(), title: "Milk", isDone: true},
-            {id: v1(), title: "React Book", isDone: true}
-        ]
-    })
+    const dispatch = useDispatch()
 
     const addTask = (todolistId: string, newTitle: string) => {
-        dispatchToTasks(addTaskAC(newTitle, todolistId))
+        dispatch(addTaskAC(newTitle, todolistId))
     }
     const removeTask = (todolistId: string, taskId: string) => {
-        dispatchToTasks(removeTaskAC(taskId, todolistId))
+        dispatch(removeTaskAC(taskId, todolistId))
     }
     const removeTodolist = (todolistId: string) => {
         const action = removeTodolistAC(todolistId)
-        dispatchToTodolists(action)
-        dispatchToTasks(action)
+        dispatch(action)
     }
     const changeFilter = (todolistId: string, value: FilterValuesType) => {
-        dispatchToTodolists(changeTodolistFilterAC(todolistId, value))
+        dispatch(changeTodolistFilterAC(todolistId, value))
     }
     const changeStatus = (todolistId: string, taskId: string, checkedValue: boolean) => {
-        dispatchToTasks(changeTaskStatusAC(taskId, checkedValue, todolistId))
+        dispatch(changeTaskStatusAC(taskId, checkedValue, todolistId))
     }
     const addTodolist = (newTitle: string) => {
         const action = addTodolistAC(newTitle)
-        dispatchToTodolists(action)
-        dispatchToTasks(action)
+        dispatch(action)
     }
     const updateTitleTodolist = (todolistId: string, updateTitle: string) => {
-        dispatchToTodolists(changeTodolistTitleAC(todolistId, updateTitle))
+        dispatch(changeTodolistTitleAC(todolistId, updateTitle))
     }
     const updateTitleTask = (todolistId: string, taskId: string, updateTitle: string) => {
-        dispatchToTasks(changeTaskTitleAC(taskId, updateTitle, todolistId))
+        dispatch(changeTaskTitleAC(taskId, updateTitle, todolistId))
     }
     return (
         <div className="App">
@@ -113,10 +94,9 @@ function AppWithRedux() {
                         }
 
                         return (
-                            <Grid item>
+                            <Grid key={el.id} item>
                                 <Paper elevation={3} style={{padding: '10px'}}>
                                     <TodoList
-                                        key={el.id}
                                         todolistId={el.id}
                                         tasks={tasksForTodolist}
                                         title={el.title}
