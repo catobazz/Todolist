@@ -1,12 +1,12 @@
 import type {Meta, StoryObj} from '@storybook/react';
-import {action} from '@storybook/addon-actions'
-import { EditableSpan } from '../EditableSpan';
+import AppWithRedux from "../AppWithRedux";
+import {ReduxStoreProviderDecorator} from "./decorators/ReduxStoreProviderDecorator";
 
 // More on how to set up stories at:
 // https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-const meta: Meta<typeof EditableSpan> = {
-    title: 'TODOLISTS/EditableSpan',
-    component: EditableSpan,
+const meta: Meta<typeof AppWithRedux> = {
+    title: 'TODOLISTS/AppWithRedux',
+    component: AppWithRedux,
     // This component will have an automatically generated Autodocs entry:
     // https://storybook.js.org/docs/react/writing-docs/autodocs
     tags: ['autodocs'],
@@ -15,24 +15,12 @@ const meta: Meta<typeof EditableSpan> = {
         layout: 'centered',
     },
     // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-    argTypes: {
-        value: {
-            description: 'Start value empty. Add value push button set string.'
-        },
-        onChange: {
-            action: 'clicked',
-            description: 'Value EditableSpan changed'
-        }
-    }
+    decorators: [ReduxStoreProviderDecorator]
 };
 
 export default meta;
-type Story = StoryObj<typeof EditableSpan>;
+type Story = StoryObj<typeof AppWithRedux>;
 
 // More on component templates:
 // https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-export const EditableSpanStory: Story = {
-    args: {
-        onChange: action('Value EditableSpan changed')
-    }
-};
+export const AppWithReduxStory: Story = {}
