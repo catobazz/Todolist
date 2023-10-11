@@ -68,7 +68,7 @@ export const tasksReducer = (state: TasksStateType, action: ActionsType): TasksS
         }
         case 'REMOVE-TODOLIST': {
             const stateCopy = {...state}
-            delete stateCopy[action.id]
+            delete stateCopy[action.todolistId]
             return stateCopy
         }
 
