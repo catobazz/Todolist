@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from 'react';
+import React, {ChangeEvent, useCallback} from 'react';
 import {FilterValuesType} from './AppWithRedux';
 import {AddItemForm} from './AddItemForm';
 import {EditableSpan} from './EditableSpan';
@@ -31,9 +31,9 @@ export function Todolist(props: PropsType) {
     const tasks = useSelector<AppRootState, Array<TaskType>>(state => state.tasks[props.id])
 
 
-    const addTask = (title: string) => {
+    const addTask = useCallback((title: string) => {
         dispatch(addTaskAC(title, props.id))
-    }
+    },[])
 
     const removeTodolist = () => {
         props.removeTodolist(props.id);
