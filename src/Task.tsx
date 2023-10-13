@@ -11,7 +11,7 @@ type TaskPropsType = {
     todolistId: string
     task: TaskType
 }
-export const Task = (props: TaskPropsType) => {
+export const Task = React.memo((props: TaskPropsType) => {
     const dispatch = useDispatch()
     const onClickHandler = () => dispatch(removeTaskAC(props.task.id, props.todolistId))
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -35,4 +35,4 @@ export const Task = (props: TaskPropsType) => {
             <Delete/>
         </IconButton>
     </div>
-}
+})
