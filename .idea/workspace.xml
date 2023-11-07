@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cc82ad6e-21e9-43ab-89d6-780105383ed2" name="Changes" comment="04_12 decorators">
+      <change afterPath="$PROJECT_DIR$/src/reportWebVitals.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AddItemForm.stories.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddItemForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppWithReducers.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppWithRedux.stories.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AppWithRedux.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EditableSpan.stories.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EditableSpan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditableSpan.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Task.stories.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Task.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serviceWorker.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setupTests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/setupTests.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/tasks-reducer.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/tasks-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/todolists-reducer.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/todolists-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/todolists-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/todolists-tasks-reducer.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/user-reducer.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/user-reducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Button.stories.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Button.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Configure.mdx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Header.stories.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Header.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Page.stories.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/Page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/accessibility.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/accessibility.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/addon-library.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/assets.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/context.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/discord.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/docs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/figma-plugin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/github.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/share.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/styling.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/testing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/theming.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/tutorials.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/assets/youtube.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/button.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/decorators/ReduxStoreProviderDecorator.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/page.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="todolist_dimy41" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2WYxbqzNtHv8EL5LvvkLNG1nonY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/catob/Documents/It-incubator/Todolist/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;C:/Users/catob/Documents/It-incubator/Todolist/node_modules/react-scripts&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\catob\\Documents\\It-incubator\\Todolist\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\catob\Documents\It-incubator\Todolist\src" />
+      <recent name="C:\Users\catob\Documents\It-incubator\Todolist\src\state" />
+    </key>
+    <key name="es6.move.members.recent.items">
+      <recent name="C:\Users\catob\Documents\It-incubator\Todolist\src\Task.tsx" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Jest.property with todolistId should be deleted">
+    <configuration name="property with todolistId should be deleted" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/state/tasks-reducer.test.tsx" />
+      <test-names>
+        <test-name value="property with todolistId should be deleted" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="storybook" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="storybook" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="test:integration" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test:integration" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.test:integration" />
+        <item itemvalue="npm.storybook" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.test" />
+        <item itemvalue="Jest.property with todolistId should be deleted" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cc82ad6e-21e9-43ab-89d6-780105383ed2" name="Changes" comment="" />
+      <created>1696923396502</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1696923396502</updated>
+      <workItem from="1696923399299" duration="14702000" />
+      <workItem from="1697003126330" duration="13831000" />
+      <workItem from="1697090781301" duration="8336000" />
+      <workItem from="1697181053627" duration="6632000" />
+      <workItem from="1697448421295" duration="623000" />
+      <workItem from="1697449143032" duration="2941000" />
+      <workItem from="1697530543698" duration="2831000" />
+      <workItem from="1697533496520" duration="654000" />
+      <workItem from="1697534374848" duration="805000" />
+      <workItem from="1697542816635" duration="571000" />
+    </task>
+    <task id="LOCAL-00001" summary="01_tasks-reducer.ts">
+      <created>1696926518047</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1696926518047</updated>
+    </task>
+    <task id="LOCAL-00002" summary="01_09 done">
+      <created>1696937437457</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696937437457</updated>
+    </task>
+    <task id="LOCAL-00003" summary="02_10 refactoring">
+      <created>1696940203231</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1696940203231</updated>
+    </task>
+    <task id="LOCAL-00004" summary="03_10 AppWithReducers.tsx">
+      <created>1697006293363</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1697006293363</updated>
+    </task>
+    <task id="LOCAL-00005" summary="04_10 done">
+      <created>1697013313116</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1697013313116</updated>
+    </task>
+    <task id="LOCAL-00006" summary="05_10 refactoring">
+      <created>1697029290526</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1697029290526</updated>
+    </task>
+    <task id="LOCAL-00007" summary="01_11 log">
+      <created>1697103657612</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1697103657612</updated>
+    </task>
+    <task id="LOCAL-00008" summary="02_11 memo useCallback">
+      <created>1697104485588</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1697104485588</updated>
+    </task>
+    <task id="LOCAL-00009" summary="03_11 memo useCallback">
+      <created>1697116059970</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1697116059970</updated>
+    </task>
+    <task id="LOCAL-00010" summary="04_11 Task.tsx">
+      <created>1697192861429</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1697192861449</updated>
+    </task>
+    <task id="LOCAL-00011" summary="04_11 Task memo">
+      <created>1697194007209</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1697194007209</updated>
+    </task>
+    <task id="LOCAL-00012" summary="03_12 Task.stories.tsx">
+      <created>1697455154891</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1697455154891</updated>
+    </task>
+    <task id="LOCAL-00013" summary="04_12 decorators">
+      <created>1697532095898</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1697532095898</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/todolist_dimy41" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="01_tasks-reducer.ts" />
+    <MESSAGE value="01_09 done" />
+    <MESSAGE value="02_10 refactoring" />
+    <MESSAGE value="03_10 AppWithReducers.tsx" />
+    <MESSAGE value="04_10 done" />
+    <MESSAGE value="05_10 refactoring" />
+    <MESSAGE value="01_11 log" />
+    <MESSAGE value="02_11 memo useCallback" />
+    <MESSAGE value="03_11 memo useCallback" />
+    <MESSAGE value="04_11 Task.tsx" />
+    <MESSAGE value="04_11 Task memo" />
+    <MESSAGE value="03_12 Task.stories.tsx" />
+    <MESSAGE value="04_12 decorators" />
+    <option name="LAST_COMMIT_MESSAGE" value="04_12 decorators" />
+  </component>
+</project>
