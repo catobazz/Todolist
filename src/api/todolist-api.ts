@@ -13,13 +13,7 @@ type TodoType = {
     addedDate: Date,
     order: number
 }
-type CreateTodoType = {
-    resultCode: number
-    messages: string[],
-    data: {
-        item: TodoType
-    }
-}
+
 type ResponseType<T = {}> = {
     resultCode: number
     messages: string[],
